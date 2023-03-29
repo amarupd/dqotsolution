@@ -61,15 +61,13 @@ const login = async (req, res) => {
     const user = await addUser.findOne({ where: { email: `${id}` } })
     console.log(user);
     let str = user.email; //json to single value
-
-
     let pas = user.password;
 
     if (id == str && cpass == pas) {
 
         res.status(200).json({ message: `logged in succesfully`, data: user })
     }
-    else if (id == uID && cpass != pass) {
+    else if (id == uID && cpass != pas) {
         res.status(200).json({ message: `password entered incorrect` })
     }
     else {
