@@ -21,7 +21,7 @@ const adduser = async (req, res) => {
             }),
         confirmPassword: Joi.ref('password')
     })
-    const { error, value } = signupSchema.validate(req.body)
+    const { error } = signupSchema.validate(req.body)
     if (error) {
         console.log(error);
         res.json(error.details)
